@@ -7,7 +7,7 @@
         <title>Module Front</title>
 
        {{-- Laravel Vite - CSS File --}}
-       {{-- {{ module_vite('build-front', 'Resources/assets/sass/app.scss') }} --}}
+        {{ module_vite('build-front', 'Resources/assets/sass/app.scss') }}
 
     </head>
     <body>
