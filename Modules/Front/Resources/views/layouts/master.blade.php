@@ -6,14 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Module Front</title>
 
-       {{-- Laravel Vite - CSS File --}}
-        {{ module_vite('build-front', 'Resources/assets/sass/app.scss') }}
-
+        <link rel="stylesheet" href="{{ asset('assets/front/css/app.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     </head>
     <body>
-        @yield('content')
+        <header class="header">
+            @include('front::partials.top_nav')
+        </header>
+        <main>
+            @yield('content')
+        </main>
+        <footer>
 
-        {{-- Laravel Vite - JS File --}}
-        {{-- {{ module_vite('build-front', 'Resources/assets/js/app.js') }} --}}
+        </footer>
+
+        <script src="{{ asset('assets/front/js/app.js') }}"></script>
     </body>
 </html>

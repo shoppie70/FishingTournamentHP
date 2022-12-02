@@ -1,7 +1,137 @@
 @extends('front::layouts.master')
 
 @section('content')
-    <h1 class="text-red-400">Hello World</h1>
+    <div class="h-screen bg-blue-100 flex justify-center items-center">
+        <div>
+            <h1 class="text-4xl font-bold">
+                {{--                前田杯--}}
+            </h1>
+
+        </div>
+    </div>
+
+    <section id="about_us" class="pt-16 mb-20">
+        <div class="mb-16">
+            @include('front::components.heading-main', ['main_title' => 'ABOUT US', 'sub_title' => 'わたしたちについて'])
+        </div>
+        <div class="w-full max-w-screen-lg mx-auto">
+            <div class="flex flex-wrap md:flex-nowrap">
+                <div class="w-full md:w-1/2 px-4">
+                    <h3 class="font-bold text-xl mb-4">
+                        テキストが入ります
+                    </h3>
+                    <p class="leading-7">
+                        テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                        テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                        テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                    <img class="rounded-lg" src="https://placehold.jp/400x400.png?text=Photo" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="topics" class="mb-20">
+        <div class="mb-12">
+            @include('front::components.heading-main', ['main_title' => 'TOPICS', 'sub_title' => 'お知らせ'])
+        </div>
+        <div class="max-w-screen-md mx-auto w-full">
+            <ul class="border py-4 px-6 rounded shadow-lg">
+                @for($i = 0; $i < 3; ++$i)
+                    <li class="py-4">
+                        <article class="flex flex-wrap items-center md:flex-nowrap">
+                            <time datetime="" class="rounded bg-blue-400 text-white font-bold py-1 px-2 text-sm">
+                                2022.12.24
+                            </time>
+                            <h1 class="ml-4">
+                                <a href="" class="underline">
+                                    お知らせのタイトルが入ります。
+                                </a>
+                            </h1>
+                        </article>
+                    </li>
+                @endfor
+            </ul>
+        </div>
+    </section>
+    <section id="topics" class="mb-20">
+        <div class="mb-12">
+            @include('front::components.heading-main', ['main_title' => 'EVENT', 'sub_title' => 'イベント情報'])
+        </div>
+        <div class="max-w-screen-xl mx-auto w-full">
+            <div class="flex flex-wrap md:flex-nowrap">
+                <div class="w-full md:w-3/5 md:mr-4">
+                    <article class="flex flex-wrap items-start md:flex-nowrap border py-4 px-6 rounded shadow-lg">
+                        <div class="w-full md:w-1/3 md:mr-4">
+                            <img class="rounded-lg" src="https://placehold.jp/400x500.png?text=Photo" alt="">
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h1 class="font-bold text-3xl my-2">
+                                下津井沖磯頂上決戦
+                            </h1>
+                            <div class="flex mb-4">
+                                <time datetime=""
+                                      class="rounded bg-red-400 text-white font-bold py-1 px-2 text-sm inline-block mr-2">
+                                    2022.12.24
+                                </time>
+                                <div class="rounded bg-lime-500 text-white font-bold py-1 px-2 text-sm inline-block">
+                                    下津井エリア
+                                </div>
+                            </div>
+                            <p>
+                                大会の内容が入ります。大会の内容が入ります。大会の内容が入ります。大会の内容が入ります。
+                                大会の内容が入ります。大会の内容が入ります。大会の内容が入ります。大会の内容が入ります。
+                                大会の内容が入ります。大会の内容が入ります。大会の内容が入ります。大会の内容が入ります。
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <div class="w-full md:w-2/5 md:mr-4">
+                    <article class="border py-4 px-6 rounded shadow-lg">
+                        <h1 class="font-bold text-3xl my-2 flex items-center">
+                            下津井沖磯頂上決戦 <span
+                                class="ml-4 rounded bg-red-600 text-white font-bold py-1 px-2 text-xs inline-block">開催済み</span>
+                        </h1>
+                        <div class="flex mb-4">
+                            <time datetime=""
+                                  class="rounded bg-red-400 text-white font-bold py-1 px-2 text-sm inline-block mr-2">
+                                2022.12.24
+                            </time>
+                            <div class="rounded bg-lime-500 text-white font-bold py-1 px-2 text-sm inline-block">
+                                下津井エリア
+                            </div>
+                        </div>
+                        <p>
+                            <a href="">
+                                大会結果は<span class="border-b border-black">こちら</span>から
+                            </a>
+                        </p>
+                    </article>
+                    <article class="border py-4 px-6 rounded shadow-lg">
+                        <h1 class="font-bold text-3xl my-2 flex items-center">
+                            下津井沖磯頂上決戦 <span
+                                class="ml-4 rounded bg-red-600 text-white font-bold py-1 px-2 text-xs inline-block">開催済み</span>
+                        </h1>
+                        <div class="flex mb-4">
+                            <time datetime=""
+                                  class="rounded bg-red-400 text-white font-bold py-1 px-2 text-sm inline-block mr-2">
+                                2022.12.24
+                            </time>
+                            <div class="rounded bg-lime-500 text-white font-bold py-1 px-2 text-sm inline-block">
+                                下津井エリア
+                            </div>
+                        </div>
+                        <p>
+                            <a href="">
+                                大会結果は<span class="border-b border-black">こちら</span>から
+                            </a>
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <p>
         This view is loaded from module: {!! config('front.name') !!}

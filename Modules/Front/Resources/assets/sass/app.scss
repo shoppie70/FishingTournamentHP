@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.text {
-    color: red;
+@import "components/heading";
+
+html,
+body {
+    font-family: "Noto Sans JP", sans-serif;
 }

@@ -1,0 +1,8 @@
+.heading {
+
+    &--main {
+        @apply font-bold;
+        font-size: 3rem;
+        letter-spacing: 1px;
+    }
+}

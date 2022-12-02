@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+use Modules\Front\Http\Controllers\FrontController;
+
 Route::prefix('front')->group(function() {
-    Route::get('/', 'FrontController@index');
+    Route::get('/', [FrontController::class, 'index'])->name('index');
 });
