@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
-
+const public_dir = '../../public';
 require('laravel-mix-merge-manifest');
 
 mix.setPublicPath('../../public').mergeManifest();
@@ -11,6 +11,7 @@ mix.js('Resources/assets/js/app.js', 'public/assets/front/js')
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],
     })
+    .copyDirectory(__dirname + '/Resources/assets/img', public_dir + '/assets/front/img')
     .browserSync({
         files: [
             'Resources/**/*',
@@ -20,3 +21,4 @@ mix.js('Resources/assets/js/app.js', 'public/assets/front/js')
         ],
         proxy: 'http://localhost',
     });
+

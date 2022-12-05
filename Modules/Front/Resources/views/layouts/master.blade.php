@@ -18,7 +18,7 @@
             @yield('content')
         </main>
         <footer>
-
+            @include('front::partials.footer')
         </footer>
 
         <script src="{{ asset('assets/front/js/app.js') }}"></script>

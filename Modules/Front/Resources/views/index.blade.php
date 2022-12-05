@@ -1,7 +1,7 @@
 @extends('front::layouts.master')
 
 @section('content')
-    <div class="h-screen bg-blue-100 flex justify-center items-center">
+    <div class="h-screen bg-blue-100 flex justify-center items-center bg-center bg-cover bg-no-repeat bg-fixed" style="background-image:url('{{ asset('assets/front/img/hero.jpg') }}')">
         <div>
             <h1 class="text-4xl font-bold">
                 {{--                前田杯--}}
@@ -9,7 +9,6 @@
 
         </div>
     </div>
-
     <section id="about_us" class="pt-16 mb-20">
         <div class="mb-16">
             @include('front::components.heading-main', ['main_title' => 'ABOUT US', 'sub_title' => 'わたしたちについて'])
@@ -30,6 +29,22 @@
                     <img class="rounded-lg" src="https://placehold.jp/400x400.png?text=Photo" alt="">
                 </div>
             </div>
+        </div>
+    </section>
+    <section id="links" class="mb-20">
+        <div class="max-w-screen-lg mx-auto">
+            <ul class="flex flex-wrap md:flex-nowrap">
+                @foreach($page_links as $page_link)
+                    <li class="m-4 bg-orange-50 border rounded shadow w-1/4 text-center">
+                        <a href="{{ $page_link['path'] }}" class="pt-6 p-4 block">
+                            <img class="block mx-auto mb-2" style="max-width: 50px" src="{{ $page_link['image'] }}" alt="{{ $page_link['title'] }}">
+                            <h2 class="font-bold text-lg">
+                                {{ $page_link['title'] }}
+                            </h2>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </section>
     <section id="topics" class="mb-20">
@@ -132,8 +147,4 @@
             </div>
         </div>
     </section>
-
-    <p>
-        This view is loaded from module: {!! config('front.name') !!}
-    </p>
 @endsection

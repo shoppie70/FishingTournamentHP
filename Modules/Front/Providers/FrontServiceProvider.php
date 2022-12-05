@@ -58,6 +58,10 @@ class FrontServiceProvider extends ServiceProvider
             module_path($this->moduleName, 'Config/top_nav.php'),
             $this->moduleNameLower
         );
+        $this->mergeConfigFrom(
+            module_path($this->moduleName, 'Config/footer.php'),
+            $this->moduleNameLower
+        );
     }
 
     /**

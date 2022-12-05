@@ -1,4 +1,11 @@
 {
     "/assets/front/js/app.js": "/assets/front/js/app.js",
-    "/assets/front/css/app.css": "/assets/front/css/app.css"
+    "/assets/front/css/app.css": "/assets/front/css/app.css",
+    "/public/assets/front/img/hero.jpg": "/public/assets/front/img/hero.jpg",
+    "/publicpublic/assets/front/img/hero.jpg": "/publicpublic/assets/front/img/hero.jpg",
+    "/assets/front/img/hero.jpg": "/assets/front/img/hero.jpg",
+    "/assets/front/img/icons/boss.svg": "/assets/front/img/icons/boss.svg",
+    "/assets/front/img/icons/event.svg": "/assets/front/img/icons/event.svg",
+    "/assets/front/img/icons/result.svg": "/assets/front/img/icons/result.svg",
+    "/assets/front/img/icons/sponser.svg": "/assets/front/img/icons/sponser.svg"
 }
