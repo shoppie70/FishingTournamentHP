@@ -1,9 +1,9 @@
-<div class="w-full p-4 fixed top-0 left-0">
+<div class="w-full p-4 fixed top-0 left-0 transition duration-150 ease-out" id="top_nav">
     <div class="flex justify-between">
         <a href="{{ route('index') }}">
             {{ config('app.name') }}
         </a>
-        <ul class="flex">
+        <ul class="hidden md:flex">
             @php($top_navs = config('front.top_nav'))
             @foreach($top_navs as $top_nav)
                 <li class="py-2 px-4 hover:border-b border-black">

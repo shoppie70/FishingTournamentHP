@@ -1,15 +1,7 @@
 @extends('front::layouts.master')
 
 @section('content')
-    <div class="h-screen bg-blue-100 flex justify-center items-center bg-center bg-cover bg-no-repeat bg-fixed" style="background-image:url('{{ asset('assets/front/img/hero.jpg') }}')">
-        <div>
-            <h1 class="text-4xl font-bold">
-                {{--                前田杯--}}
-            </h1>
-
-        </div>
-    </div>
-    <section id="about_us" class="pt-16 mb-20">
+    <section id="about_us" class="pt-16 mb-4">
         <div class="mb-16">
             @include('front::components.heading-main', ['main_title' => 'ABOUT US', 'sub_title' => 'わたしたちについて'])
         </div>
@@ -25,20 +17,20 @@
                         テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
                     </p>
                 </div>
-                <div class="w-full md:w-1/2 px-4">
-                    <img class="rounded-lg" src="https://placehold.jp/400x400.png?text=Photo" alt="">
+                <div class="w-full md:w-1/2 px-4 mt-4 md:mt-0">
+                    <img class="rounded-lg mx-auto" src="https://placehold.jp/400x400.png?text=Photo" alt="">
                 </div>
             </div>
         </div>
     </section>
     <section id="links" class="mb-20">
         <div class="max-w-screen-lg mx-auto">
-            <ul class="flex flex-wrap md:flex-nowrap">
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
                 @foreach($page_links as $page_link)
-                    <li class="m-4 bg-orange-50 border rounded shadow w-1/4 text-center">
+                    <li class="bg-orange-50 border rounded shadow w-full text-center">
                         <a href="{{ $page_link['path'] }}" class="pt-6 p-4 block">
                             <img class="block mx-auto mb-2" style="max-width: 50px" src="{{ $page_link['image'] }}" alt="{{ $page_link['title'] }}">
-                            <h2 class="font-bold text-lg">
+                            <h2 class="font-bold">
                                 {{ $page_link['title'] }}
                             </h2>
                         </a>
@@ -47,7 +39,7 @@
             </ul>
         </div>
     </section>
-    <section id="topics" class="mb-20">
+    <section id="topics" class="mb-20 px-4">
         <div class="mb-12">
             @include('front::components.heading-main', ['main_title' => 'TOPICS', 'sub_title' => 'お知らせ'])
         </div>
@@ -70,7 +62,7 @@
             </ul>
         </div>
     </section>
-    <section id="topics" class="mb-20">
+    <section id="topics" class="mb-20 px-4">
         <div class="mb-12">
             @include('front::components.heading-main', ['main_title' => 'EVENT', 'sub_title' => 'イベント情報'])
         </div>
@@ -82,7 +74,7 @@
                             <img class="rounded-lg" src="https://placehold.jp/400x500.png?text=Photo" alt="">
                         </div>
                         <div class="w-full md:w-2/3">
-                            <h1 class="font-bold text-3xl my-2">
+                            <h1 class="font-bold text-xl md:text-3xl my-2">
                                 下津井沖磯頂上決戦
                             </h1>
                             <div class="flex mb-4">
@@ -102,9 +94,9 @@
                         </div>
                     </article>
                 </div>
-                <div class="w-full md:w-2/5 md:mr-4">
-                    <article class="border py-4 px-6 rounded shadow-lg">
-                        <h1 class="font-bold text-3xl my-2 flex items-center">
+                <div class="w-full md:w-2/5 md:mr-4 mt-4 md:mt-0">
+                    <article class="border py-4 px-6 rounded shadow-lg mb-4 md:mb-0">
+                        <h1 class="font-bold text-xl md:text-3xl my-2 flex items-center">
                             下津井沖磯頂上決戦 <span
                                 class="ml-4 rounded bg-red-600 text-white font-bold py-1 px-2 text-xs inline-block">開催済み</span>
                         </h1>
@@ -124,7 +116,7 @@
                         </p>
                     </article>
                     <article class="border py-4 px-6 rounded shadow-lg">
-                        <h1 class="font-bold text-3xl my-2 flex items-center">
+                        <h1 class="font-bold text-xl md:text-3xl my-2 flex items-center">
                             下津井沖磯頂上決戦 <span
                                 class="ml-4 rounded bg-red-600 text-white font-bold py-1 px-2 text-xs inline-block">開催済み</span>
                         </h1>

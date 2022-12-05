@@ -7,7 +7,17 @@
   \************************************/
 /***/ (() => {
 
-
+document.addEventListener('DOMContentLoaded', function () {
+  var top_nav = document.querySelector('#top_nav');
+  var header = document.querySelector('#header');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > header.clientHeight) {
+      top_nav.classList.add('bg-gray-50', 'bg-opacity-70');
+    } else {
+      top_nav.classList.remove('bg-gray-50', 'bg-opacity-70');
+    }
+  });
+});
 
 /***/ }),
 

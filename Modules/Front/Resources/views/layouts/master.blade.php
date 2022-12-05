@@ -11,8 +11,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     </head>
     <body>
-        <header class="header">
+        <header id="header" class="header">
             @include('front::partials.top_nav')
+            @include('front::partials.header')
         </header>
         <main>
             @yield('content')
@@ -20,7 +21,6 @@
         <footer>
             @include('front::partials.footer')
         </footer>
-
         <script src="{{ asset('assets/front/js/app.js') }}"></script>
     </body>
 </html>
