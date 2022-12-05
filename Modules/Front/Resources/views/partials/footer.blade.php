@@ -1,6 +1,6 @@
 <div class="w-full bg-black text-white pt-16 pb-4 px-4">
-    <div class="flex flex-wrap md:flex-nowrap justify-between max-w-screen-lg mx-auto mb-8">
-        <div class="">
+    <div class="block md:flex w-full flex-wrap md:flex-nowrap justify-between max-w-screen-lg mx-auto mb-8">
+        <div class="text-center">
             <a href="{{ route('index') }}">
                 {{ config('app.name') }}
             </a>

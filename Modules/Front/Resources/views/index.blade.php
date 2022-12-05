@@ -97,7 +97,7 @@
                 <div class="w-full md:w-2/5 md:mr-4 mt-4 md:mt-0">
                     <article class="border py-4 px-6 rounded shadow-lg mb-4 md:mb-0">
                         <h1 class="font-bold text-xl md:text-3xl my-2 flex items-center">
-                            下津井沖磯頂上決戦 <span
+                            秋の磯釣り大会 <span
                                 class="ml-4 rounded bg-red-600 text-white font-bold py-1 px-2 text-xs inline-block">開催済み</span>
                         </h1>
                         <div class="flex mb-4">
@@ -117,7 +117,7 @@
                     </article>
                     <article class="border py-4 px-6 rounded shadow-lg">
                         <h1 class="font-bold text-xl md:text-3xl my-2 flex items-center">
-                            下津井沖磯頂上決戦 <span
+                            真鯛王座決定戦 <span
                                 class="ml-4 rounded bg-red-600 text-white font-bold py-1 px-2 text-xs inline-block">開催済み</span>
                         </h1>
                         <div class="flex mb-4">
