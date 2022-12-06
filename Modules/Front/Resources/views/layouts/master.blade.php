@@ -23,5 +23,7 @@
             @include('front::partials.footer')
         </footer>
         <script src="{{ asset('assets/front/js/app.js') }}"></script>
+        @yield('js')
+
     </body>
 </html>

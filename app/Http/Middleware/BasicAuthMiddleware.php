@@ -19,17 +19,19 @@ class BasicAuthMiddleware
 
     public function handle(Request $request, Closure $next)
     {
-        $username = $request->getUser();
-        $password = $request->getPassword();
+        if (app()->isLocal()) {
+            $username = $request->getUser();
+            $password = $request->getPassword();
 
-        if ($username === $this->basic_user && $password === $this->basic_pass) {
-            return $next($request);
+            if ($username === $this->basic_user && $password === $this->basic_pass) {
+                return $next($request);
+            }
+
+            abort(401, "Enter username and password.", [
+                header('WWW-Authenticate: Basic realm="Sample Private Page"'),
+                header('Content-Type: text/plain; charset=utf-8')
+            ]);
         }
-
-        abort(401, "Enter username and password.", [
-            header('WWW-Authenticate: Basic realm="Sample Private Page"'),
-            header('Content-Type: text/plain; charset=utf-8')
-        ]);
 
     }
 }

@@ -14,18 +14,15 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Front\Http\Controllers\AboutUsController;
 use Modules\Front\Http\Controllers\FrontController;
+use Modules\Front\Http\Controllers\MemberController;
 
 
-if (app()->isLocal()) {
-    Route::group(['middleware' => 'basicauth'], function() {
-        Route::get('/', [FrontController::class, 'index'])->name('index');
-        Route::get('/about_us', [AboutUsController::class, 'index'])->name('about_us');
-    });
-}
-else {
+Route::group(['middleware' => 'basic_auth'], static function () {
     Route::get('/', [FrontController::class, 'index'])->name('index');
     Route::get('/about_us', [AboutUsController::class, 'index'])->name('about_us');
-}
+    Route::get('/member', [MemberController::class, 'index'])->name('member');
+});
+
 
 
 

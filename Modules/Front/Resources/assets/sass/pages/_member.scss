@@ -1,0 +1,44 @@
+.member {
+    &-block {
+        @apply relative;
+
+        &:hover {
+
+            .member-info {
+                min-height: calc(100% + 75px);
+                color: white;
+
+                &__detail {
+                    max-height: 100%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &-info {
+        background: white;
+        padding: 36px 0;
+        min-height: 0;
+        width: 100%;
+        position: absolute;
+        bottom: -75px;
+        left: 0;
+        transition: 0.4s all, 0.2s background-color;
+
+        &__detail {
+            width: 100%;
+            position: absolute;
+            max-width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            padding: 0 36px;
+            max-height: 0;
+            opacity: 0;
+            transition: .4s all 0s ease-in-out;
+            color: white;
+        }
+    }
+}
