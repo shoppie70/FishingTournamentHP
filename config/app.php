@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+    'basic_user' => env('BASIC_USER'),
+    'basic_pass' => env('BASIC_PASS'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

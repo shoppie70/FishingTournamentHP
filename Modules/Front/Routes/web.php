@@ -12,6 +12,20 @@
 */
 
 use Illuminate\Support\Facades\Route;
+use Modules\Front\Http\Controllers\AboutUsController;
 use Modules\Front\Http\Controllers\FrontController;
 
-Route::get('/', [FrontController::class, 'index'])->name('index');
+
+if (app()->isLocal()) {
+    Route::group(['middleware' => 'basicauth'], function() {
+        Route::get('/', [FrontController::class, 'index'])->name('index');
+        Route::get('/about_us', [AboutUsController::class, 'index'])->name('about_us');
+    });
+}
+else {
+    Route::get('/', [FrontController::class, 'index'])->name('index');
+    Route::get('/about_us', [AboutUsController::class, 'index'])->name('about_us');
+}
+
+
+
