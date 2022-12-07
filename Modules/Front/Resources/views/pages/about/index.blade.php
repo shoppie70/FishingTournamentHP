@@ -4,6 +4,15 @@
     {{ Breadcrumbs::render('about_us', $title) }}
     <section id="about_us" class="pt-16 mb-20">
         <div class="w-full max-w-screen-lg mx-auto">
+            <div class="mb-12">
+                @include('front::components.heading-main', ['main_title' => '前田杯', 'sub_title' => ''])
+            </div>
+            <p class="leading-7 mb-16">
+                前田杯の説明・紹介文が入ります。前田杯の説明・紹介文が入ります。前田杯の説明・紹介文が入ります。
+                前田杯の説明・紹介文が入ります。前田杯の説明・紹介文が入ります。前田杯の説明・紹介文が入ります。
+                前田杯の説明・紹介文が入ります。前田杯の説明・紹介文が入ります。前田杯の説明・紹介文が入ります。
+                前田杯の説明・紹介文が入ります。前田杯の説明・紹介文が入ります。前田杯の説明・紹介文が入ります。
+            </p>
             <div class="flex flex-wrap md:flex-nowrap flex-col-reverse md:flex-row">
                 <div class="w-full md:w-1/2 px-4">
                     <h3 class="font-bold text-xl mb-4">
