@@ -20,7 +20,7 @@
                 以下のボタンからお問い合わせフォームへアクセス可能です。
             </p>
             <div class="max-w-screen-sm mx-auto bg-blue-400 text-white rounded text-center text-2xl font-bold">
-                <a class="p-4 flex items-center justify-center" href="{{ route('donation.form') }}">
+                <a class="p-4 flex items-center justify-center" href="{{ route('donation.form.index') }}">
                     <svg class="mr-4" id="_x32_" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
                          style="width: 32px; height: 32px; opacity: 1;" xml:space="preserve">

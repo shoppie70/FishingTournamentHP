@@ -10,18 +10,7 @@ use RuntimeException;
 
 class SaveContactFormAction
 {
-    protected array $form_content_names = [
-        'contents',
-        'company_name',
-        'postal_code',
-        'address',
-        'name',
-        'email',
-        'tel',
-        'note'
-    ];
-
-    public function __invoke(ContactRequest $request): void
+    public function __invoke(ContactRequest $request, array $form_content_names): void
     {
         if(!FormType::hasValue((int)$request->get('form_type_id'))) {
             throw new RuntimeException('フォームで不正な値が送信されました。');
@@ -31,7 +20,7 @@ class SaveContactFormAction
             'form_type_id' => $request->get('form_type_id')
         ]);
 
-        foreach($this->form_content_names as $form_content_name) {
+        foreach($form_content_names as $form_content_name) {
             if($value = $request->get($form_content_name)) {
                 ContactFormDetail::query()->create([
                     'form_id' => $form->getKey(),

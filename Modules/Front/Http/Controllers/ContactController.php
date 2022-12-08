@@ -6,16 +6,14 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use Modules\Front\Emails\Donation\DonationToUser;
-use Modules\Front\Emails\Donation\DonationToAdmin;
+use Modules\Front\Emails\Contact\ContactToUser;
+use Modules\Front\Emails\Contact\ContactToAdmin;
 use Modules\Front\Http\Requests\ContactRequest;
 use Modules\Front\UseCases\ContactForm\SaveContactFormAction;
 
-class DonationController extends Controller
+class ContactController extends Controller
 {
     protected array $form_content_names = [
-        'company_name',
-        'contents',
         'name',
         'postal_code',
         'address',
@@ -30,44 +28,19 @@ class DonationController extends Controller
      */
     public function index(): Renderable
     {
-        $title = '寄付・協賛について';
-        $sub_title = 'DONATION';
+        $title = 'お問い合わせ';
+        $sub_title = 'CONTACT';
         $hero_image_path = '';
 
-        return view('front::pages.donation.index', compact(
-            'title',
-            'sub_title',
-            'hero_image_path'
-        ));
-    }
-
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
-    public function form(): Renderable
-    {
-        $title = '寄付・協賛のお問い合わせ';
-        $sub_title = 'DONATION';
-        $hero_image_path = '';
-
-        $endpoint = route('donation.form.post');
+        $endpoint = route('contact.post');
         $method = 'POST';
 
-        $form_contents = [
-            '寄付についてのお問い合わせ',
-            '協賛についてのお問い合わせ',
-            '打ち合わせがしたい',
-            'その他'
-        ];
-
-        return view('front::pages.donation.form', compact(
+        return view('front::pages.contact.index', compact(
             'title',
             'sub_title',
             'hero_image_path',
             'endpoint',
             'method',
-            'form_contents'
         ));
     }
 
@@ -86,20 +59,20 @@ class DonationController extends Controller
 
             DB::rollBack();
 
-            return redirect(route('donation.form'))->withErrors($e->getMessage());
+            return redirect(route('contact.form'))->withErrors($e->getMessage());
         }
 
         try {
-            Mail::to($request->get('email'))->send(new DonationToUser($request));
-            Mail::to(config('about_us.admin_email'))->send(new DonationToAdmin($request));
+            Mail::to($request->get('email'))->send(new ContactToUser($request));
+            Mail::to(config('about_us.admin_email'))->send(new ContactToAdmin($request));
         }
         catch (\Exception $e) {
             report($e);
 
-            return redirect(route('donation.form'))->withErrors($e->getMessage());
+            return redirect(route('contact.index'))->withErrors($e->getMessage());
         }
 
-        return redirect(route('donation.form.complete'));
+        return redirect(route('contact.complete'));
     }
 
     /**
@@ -109,9 +82,9 @@ class DonationController extends Controller
     public function complete(): Renderable
     {
         $title = 'お問い合わせありがとうございました。';
-        $subtitle = 'DONATION';
+        $subtitle = 'CONTACT';
 
-        return view('front::pages.donation.complete', compact(
+        return view('front::pages.contact.complete', compact(
             'title',
             'subtitle',
         ));

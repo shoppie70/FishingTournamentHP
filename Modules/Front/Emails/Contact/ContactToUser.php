@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Front\Emails;
+namespace Modules\Front\Emails\Contact;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Modules\Front\Http\Requests\ContactRequest;
 
-class ContactMail extends Mailable
+class ContactToUser extends Mailable
 {
     use Queueable;
     use SerializesModels;
@@ -21,7 +21,7 @@ class ContactMail extends Mailable
 
     public function build(): self
     {
-        return $this->view('front::mail.contact')
+        return $this->markdown('front::mail.contact.user')
             ->subject('お問い合わせありがとうございます。')
             ->with(['request' => $this->request]);
     }

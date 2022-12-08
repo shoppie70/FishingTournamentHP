@@ -19,5 +19,10 @@ Breadcrumbs::for('member', static function ($trail, $title) {
 Breadcrumbs::for('donation', static function ($trail) {
     $trail->parent('home');
     $trail->push('寄付・協賛について', route('donation.index'));
-    $trail->push('寄付・協賛のお問い合わせ', route('donation.form'));
+    $trail->push('寄付・協賛のお問い合わせ', route('donation.form.index'));
+});
+
+Breadcrumbs::for('contact', static function ($trail) {
+    $trail->parent('home');
+    $trail->push('お問い合わせ', route('contact.index'));
 });

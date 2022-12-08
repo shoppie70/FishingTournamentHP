@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Front\Emails;
+namespace Modules\Front\Emails\Donation;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Modules\Front\Http\Requests\ContactRequest;
 
-class DonationMail extends Mailable
+class DonationToUser extends Mailable
 {
     use Queueable;
     use SerializesModels;

@@ -12,6 +12,7 @@
 */
 
 use Illuminate\Support\Facades\Route;
+use Modules\Front\Http\Controllers\ContactController;
 use Modules\Front\Http\Controllers\DonationController;
 use Modules\Front\Http\Controllers\FrontController;
 use Modules\Front\Http\Controllers\LowerPageController;
@@ -22,11 +23,20 @@ Route::group(['middleware' => 'basic_auth'], static function () {
     Route::get('/member', [LowerPageController::class, 'member'])->name('member');
     Route::get('/donation', [LowerPageController::class, 'donation'])->name('donation');
 
+    Route::group(['prefix' => 'contact', 'as' => 'contact.'], static function (): void {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+        Route::get('/complete', [ContactController::class, 'complete'])->name('complete');
+        Route::post('/post', [ContactController::class, 'post'])->name('post');
+    });
+
     Route::group(['prefix' => 'donation', 'as' => 'donation.'], static function (): void {
         Route::get('/', [DonationController::class, 'index'])->name('index');
-        Route::get('/form', [DonationController::class, 'form'])->name('form');
-        Route::get('/form/complete', [DonationController::class, 'complete'])->name('form.complete');
-        Route::post('/form/post', [DonationController::class, 'post'])->name('form.post');
+
+        Route::group(['prefix' => 'form', 'as' => 'form.'], static function (): void {
+            Route::get('/', [DonationController::class, 'form'])->name('index');
+            Route::get('/complete', [DonationController::class, 'complete'])->name('complete');
+            Route::post('/post', [DonationController::class, 'post'])->name('post');
+        });
     });
 
 });
