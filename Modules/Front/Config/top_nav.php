@@ -19,5 +19,9 @@ return [
             'title' => 'お知らせ',
             'path' => 'news',
         ],
+        [
+            'title' => 'お問い合わせ',
+            'path' => 'contact.index',
+        ],
     ]
 ];

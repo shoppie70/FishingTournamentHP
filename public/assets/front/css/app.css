@@ -728,11 +728,11 @@ select {
 .mb-8 {
   margin-bottom: 2rem;
 }
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
 .mr-4 {
   margin-right: 1rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 .mb-32 {
   margin-bottom: 8rem;
@@ -923,17 +923,21 @@ select {
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
 .px-16 {
   padding-left: 4rem;
   padding-right: 4rem;
 }
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 .pt-16 {
   padding-top: 4rem;
@@ -998,13 +1002,13 @@ select {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
 }
-.text-gray-400 {
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
-}
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;

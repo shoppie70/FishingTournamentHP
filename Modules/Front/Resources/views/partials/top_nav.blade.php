@@ -7,7 +7,7 @@
             @php($top_navs = config('front.top_nav'))
             @foreach($top_navs as $top_nav)
                 <li class="py-2 px-4 hover:border-b border-black">
-                    <a href="{{ $top_nav['path'] }}">
+                    <a href="{{ Route::has($top_nav['path']) ? route($top_nav['path']) : '' }}">
                         {{ $top_nav['title'] }}
                     </a>
                 </li>

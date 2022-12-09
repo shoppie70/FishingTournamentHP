@@ -10,7 +10,7 @@
             <ul class="hidden md:block">
                 @foreach($footer_nav as $footer_nav_item)
                     <li class="py-2 px-4 hover:border-b border-black">
-                        <a href="{{ $footer_nav_item['path'] }}">
+                        <a href="{{ Route::has($footer_nav_item['path']) ? route($footer_nav_item['path']) : '' }}">
                             {{ $footer_nav_item['title'] }}
                         </a>
                     </li>

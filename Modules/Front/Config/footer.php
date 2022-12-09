@@ -19,6 +19,10 @@ return [
                 'title' => 'お知らせ',
                 'path' => 'news',
             ],
+            [
+                'title' => 'お問い合わせ',
+                'path' => 'contact.index',
+            ],
         ],
         [
             [
@@ -27,18 +31,22 @@ return [
             ],
             [
                 'title' => 'スポンサーリンク',
-                'path' => 'sponser',
+                'path' => 'sponsor',
             ],
             [
                 'title' => '寄付・協賛について',
                 'path' => 'donation',
             ],
             [
-                'title' => 'プライバシーポリシー',
-                'path' => 'privacy_policy	',
+                'title' => '寄付・協賛に関するお問い合わせ',
+                'path' => 'donation.form.index',
             ],
         ],
         [
+            [
+                'title' => 'プライバシーポリシー',
+                'path' => 'privacy_policy',
+            ],
             [
                 'title' => '会員登録',
                 'path' => 'register',

@@ -16,6 +16,16 @@ Breadcrumbs::for('member', static function ($trail, $title) {
     $trail->push($title, route('member'));
 });
 
+Breadcrumbs::for('sponsor', static function ($trail, $title) {
+    $trail->parent('home');
+    $trail->push($title, route('sponsor'));
+});
+
+Breadcrumbs::for('privacy_policy', static function ($trail, $title) {
+    $trail->parent('home');
+    $trail->push($title, route('privacy_policy'));
+});
+
 Breadcrumbs::for('donation', static function ($trail) {
     $trail->parent('home');
     $trail->push('寄付・協賛について', route('donation.index'));

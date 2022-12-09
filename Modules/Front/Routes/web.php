@@ -21,7 +21,8 @@ Route::group(['middleware' => 'basic_auth'], static function () {
     Route::get('/', [FrontController::class, 'index'])->name('index');
     Route::get('/about_us', [LowerPageController::class, 'about_us'])->name('about_us');
     Route::get('/member', [LowerPageController::class, 'member'])->name('member');
-    Route::get('/donation', [LowerPageController::class, 'donation'])->name('donation');
+    Route::get('/sponsor', [LowerPageController::class, 'sponsor'])->name('sponsor');
+    Route::get('/privacy_policy', [LowerPageController::class, 'privacy_policy'])->name('privacy_policy');
 
     Route::group(['prefix' => 'contact', 'as' => 'contact.'], static function (): void {
         Route::get('/', [ContactController::class, 'index'])->name('index');
