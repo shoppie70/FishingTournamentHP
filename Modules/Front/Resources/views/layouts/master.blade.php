@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ asset('assets/front/css/app.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+        @yield('css')
     </head>
     <body>
         <header id="header" class="header">

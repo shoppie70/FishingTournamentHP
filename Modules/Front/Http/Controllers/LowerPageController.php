@@ -17,7 +17,7 @@ class LowerPageController extends Controller
         $sub_title = 'ABOUT US';
         $hero_image_path = '';
 
-        return view('front::pages.lower_pages.about', compact(
+        return view('front::pages.lower_pages.about_us', compact(
             'title',
             'sub_title',
             'hero_image_path'
