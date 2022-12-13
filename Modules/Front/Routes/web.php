@@ -17,7 +17,7 @@ use Modules\Front\Http\Controllers\DonationController;
 use Modules\Front\Http\Controllers\FrontController;
 use Modules\Front\Http\Controllers\LowerPageController;
 use Modules\Front\Http\Controllers\NewsController;
-use Modules\Front\Http\Controllers\UserController;
+use Modules\Front\Http\Controllers\PlayerController;
 
 Route::group(['middleware' => 'basic_auth'], static function () {
     Route::get('/', [FrontController::class, 'index'])->name('index');
@@ -38,8 +38,8 @@ Route::group(['middleware' => 'basic_auth'], static function () {
     });
 
     Route::group(['prefix' => 'player', 'as' => 'player.'], static function (): void {
-        Route::get('/register', [UserController::class, 'register'])->name('register');
-        Route::post('/post', [UserController::class, 'post'])->name('post');
+        Route::get('/register', [PlayerController::class, 'register'])->name('register');
+        Route::post('/post', [PlayerController::class, 'post'])->name('post');
     });
 
     Route::group(['prefix' => 'donation', 'as' => 'donation.'], static function (): void {

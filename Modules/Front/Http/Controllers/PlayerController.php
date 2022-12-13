@@ -11,7 +11,7 @@ use Illuminate\Validation\ValidationException;
 use Modules\Front\Http\Requests\StorePlayerRequest;
 use Modules\Front\UseCases\Player\StorePlayerAction;
 
-class UserController extends Controller
+class PlayerController extends Controller
 {
     /**
      * Show the form for creating a new resource.
