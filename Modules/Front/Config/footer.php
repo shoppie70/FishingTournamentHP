@@ -17,7 +17,7 @@ return [
             ],
             [
                 'title' => 'お知らせ',
-                'path' => 'news',
+                'path' => 'news.index',
             ],
             [
                 'title' => 'お問い合わせ',
