@@ -105,6 +105,32 @@
                             ])
                         </dd>
                     </dl>
+                    <dl class="form__dl">
+                        <dt class="form__dt">
+                            <span class="font-bold">パスワード</span>
+                        </dt>
+                        <dd class="form__dd">
+                            @include('front::components.form.input-password', [
+                                'name' => 'password',
+                                'placeholder' => '',
+                                'value' => old('password') ?? '',
+                                'required' => true,
+                            ])
+                        </dd>
+                    </dl>
+                    <dl class="form__dl">
+                        <dt class="form__dt">
+                            <span class="font-bold">パスワード(確認)</span>
+                        </dt>
+                        <dd class="form__dd">
+                            @include('front::components.form.input-password', [
+                                'name' => 'password_confirmed',
+                                'placeholder' => '',
+                                'value' => old('password_confirmed') ?? '',
+                                'required' => true,
+                            ])
+                        </dd>
+                    </dl>
                 </div>
                 <div class="bg-gray-100 rounded-lg p-4 md:p-16">
                     <h2 class="text-center font-bold text-xl mb-8 mt-8 md:mt-0">

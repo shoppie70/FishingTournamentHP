@@ -5,7 +5,6 @@ namespace Modules\Front\Http\Controllers;
 use App\Models\Player;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Validation\ValidationException;
 use Modules\Front\Http\Requests\StorePlayerRequest;

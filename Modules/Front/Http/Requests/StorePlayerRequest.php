@@ -4,6 +4,7 @@ namespace Modules\Front\Http\Requests;
 
 use App\Rules\Tel;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 class StorePlayerRequest extends FormRequest
 {
@@ -28,6 +29,12 @@ class StorePlayerRequest extends FormRequest
                 new Tel(),
             ],
             'email' => 'required|email',
+            'password' => [
+                'required',
+                'string',
+                'confirmed',
+                Password::defaults()
+            ]
         ];
     }
 
@@ -41,6 +48,7 @@ class StorePlayerRequest extends FormRequest
             'address' => '住所',
             'phone_number' => '電話番号',
             'email' => 'メールアドレス',
+            'password' => 'パスワード',
         ];
     }
 }
