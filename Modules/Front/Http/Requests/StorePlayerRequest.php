@@ -22,7 +22,7 @@ class StorePlayerRequest extends FormRequest
             'kana' => 'required|string|max:255',
             'postal_code' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:255',
-            'tel' => [
+            'phone_number' => [
                 'nullable',
                 'string',
                 new Tel(),
@@ -39,7 +39,7 @@ class StorePlayerRequest extends FormRequest
             'company_name' => '貴社名',
             'postal_code' => '郵便番号',
             'address' => '住所',
-            'tel' => '電話番号',
+            'phone_number' => '電話番号',
             'email' => 'メールアドレス',
         ];
     }

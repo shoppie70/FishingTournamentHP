@@ -6,7 +6,7 @@
             </a>
         </div>
         @php($footer_navs = config('front.footer_nav'))
-        @foreach($footer_navs as $footer_nav)
+        @foreach($footer_navs as $i => $footer_nav)
             <ul class="hidden md:block">
                 @foreach($footer_nav as $footer_nav_item)
                     <li class="py-2 px-4 hover:border-b border-black">
@@ -14,6 +14,27 @@
                             {{ $footer_nav_item['title'] }}
                         </a>
                     </li>
+                    @if($i === 2 && $loop->last)
+                        @auth
+                            <li class="py-2 px-4 hover:border-b border-black">
+                                <a href="{{ route('player.mypage', ['player' => Auth::guard('player')->user()]) }}">
+                                    マイページ
+                                </a>
+                            </li>
+                            <li class="py-2 px-4 hover:border-b border-black">
+                                <a href="{{ route('player.logout') }}">
+                                    ログアウト
+                                </a>
+                            </li>
+                        @endauth
+                        @guest
+                            <li class="py-2 px-4 hover:border-b border-black">
+                                <a href="{{ route('player.login.index') }}">
+                                    ログイン
+                                </a>
+                            </li>
+                        @endguest
+                    @endif
                 @endforeach
             </ul>
         @endforeach

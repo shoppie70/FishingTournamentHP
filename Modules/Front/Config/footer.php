@@ -49,11 +49,7 @@ return [
             ],
             [
                 'title' => '会員登録',
-                'path' => 'register',
-            ],
-            [
-                'title' => 'マイページ',
-                'path' => 'mypage',
+                'path' => 'player.register',
             ],
         ],
     ],

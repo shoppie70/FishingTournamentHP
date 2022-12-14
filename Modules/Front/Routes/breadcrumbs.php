@@ -16,6 +16,22 @@ Breadcrumbs::for('member', static function ($trail, $title) {
     $trail->push($title, route('member'));
 });
 
+Breadcrumbs::for('player', static function ($trail, $title) {
+    $trail->parent('home');
+    $trail->push('会員登録', route('player.register'));
+});
+
+Breadcrumbs::for('login', static function ($trail) {
+    $trail->parent('home');
+    $trail->push('ログイン', route('player.login.index'));
+});
+
+Breadcrumbs::for('mypage', static function ($trail, $player) {
+    $trail->parent('home');
+    $trail->push('マイページ', route('player.mypage',['player' => $player]));
+});
+
+
 Breadcrumbs::for('sponsor', static function ($trail, $title) {
     $trail->parent('home');
     $trail->push($title, route('sponsor'));

@@ -20,9 +20,12 @@ return new class extends Migration
             $table->string('postal_code')->comment('郵便番号')->nullable();
             $table->string('address1')->comment('住所1')->nullable();
             $table->string('address2')->comment('住所2')->nullable();
-            $table->string('email')->comment('メールアドレス')->nullable();
+            $table->string('email')->comment('メールアドレス')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('phone_number')->comment('電話番号')->nullable();
             $table->boolean('is_hidden')->comment('表示設定')->default(0);
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

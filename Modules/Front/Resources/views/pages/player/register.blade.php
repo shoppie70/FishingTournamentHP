@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    {{ Breadcrumbs::render('player', $title) }}
     <section id="about_us" class="pt-16 mb-4 px-4">
         <div class="mb-8">
             <div class="mb-16">
@@ -16,6 +17,8 @@
             </p>
         </div>
         <div class="w-full max-w-screen-md mx-auto">
+            @include('front::components.form.error')
+
             <form action="{{ $endpoint }}" method="{{ $method }}" class="h-adr">
                 @csrf
                 <div class="bg-gray-100 rounded-lg p-4 md:p-16 mb-8">
@@ -29,7 +32,7 @@
                             @include('front::components.form.input-text', [
                                 'name' => 'name',
                                 'placeholder' => '例）岡山　太郎',
-                                'value' => '',
+                                'value' => old('name') ?? '',
                                 'required' => true,
                             ])
                         </dd>
@@ -41,9 +44,9 @@
                         </dt>
                         <dd class="form__dd">
                             @include('front::components.form.input-text', [
-                                'name' => 'name',
-                                'placeholder' => '例）岡山　太郎',
-                                'value' => '',
+                                'name' => 'kana',
+                                'placeholder' => '例）おかやま　たろう',
+                                'value' => old('kana') ?? '',
                                 'required' => true,
                             ])
                         </dd>
@@ -62,14 +65,14 @@
                                     </div>
                                     @include('front::components.form.input-zip', [
                                         'name' => 'postal_code',
-                                        'value' => '',
+                                        'value' => old('postal_code') ?? '',
                                     ])
                                 </div>
                             </div>
                             <div>
                                 @include('front::components.form.input-address', [
-                                    'name' => 'address',
-                                    'value' => '',
+                                    'name' => 'address1',
+                                    'value' => old('address1') ?? '',
                                     'placeholder' => '※ 郵便番号を入れて頂くと自動入力されます。',
                                 ])
                             </div>
@@ -82,9 +85,9 @@
                         </dt>
                         <dd class="form__dd">
                             @include('front::components.form.input-text', [
-                                'name' => 'name',
+                                'name' => 'email',
                                 'placeholder' => '例）岡山　太郎',
-                                'value' => '',
+                                'value' => old('email') ?? '',
                                 'required' => true,
                             ])
                         </dd>
@@ -95,10 +98,10 @@
                         </dt>
                         <dd class="form__dd">
                             @include('front::components.form.input-text', [
-                                'name' => 'name',
+                                'name' => 'phone_number',
                                 'placeholder' => '例）岡山　太郎',
-                                'value' => '',
-                                'required' => true,
+                                'value' => old('phone_number') ?? '',
+                                'required' => false,
                             ])
                         </dd>
                     </dl>

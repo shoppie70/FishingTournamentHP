@@ -52,40 +52,33 @@ class PlayerController extends Controller
      * @param Player $player
      * @return Renderable
      */
-    public function mypage(Player $player)
+    public function mypage(Player $player): Renderable
     {
+        $title = 'マイページ';
 
-        return view('front::player.mypage');
-    }
+        $player_details = [
+            [
+                'name' => '名前',
+                'value' => $player->name . '('. $player->kana .')',
+            ],
+            [
+                'name' => '住所',
+                'value' => '〒' . $player->postal_code . '&nbsp;' . $player->address1
+            ],
+            [
+                'name' => 'メールアドレス',
+                'value' => $player->email
+            ],
+            [
+                'name' => '電話番号',
+                'value' => $player->phone_number
+            ],
+            [
+                'name' => '大会参加回数',
+                'value' => 0 . '回'
+            ]
+        ];
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('front::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
+        return view('front::pages.player.mypage', compact('title','player', 'player_details'));
     }
 }
