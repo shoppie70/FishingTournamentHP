@@ -35,7 +35,7 @@ return [
             ],
             [
                 'title' => '寄付・協賛について',
-                'path' => 'donation',
+                'path' => 'donation.index',
             ],
             [
                 'title' => '寄付・協賛に関するお問い合わせ',

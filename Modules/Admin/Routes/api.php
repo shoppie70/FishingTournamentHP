@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Modules\Admin\Http\Controllers\Api\AdminController;
+use Modules\Admin\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/admin', function (Request $request) {
-    return $request->user();
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function (): void {
+    Route::group(['prefix' => 'v1', 'as' => 'v1.'], static function (): void {
+        // api.admin.v1.accounts.
+        Route::group(['prefix' => 'accounts', 'as' => 'accounts.'], static function (): void {
+            Route::post('/update/{admin}', [AdminController::class, 'edit'])->name('edit');
+            Route::post('/create', [AdminController::class, 'create'])->name('create');
+        });
+        // api.admin.v1.user.
+        Route::group(['prefix' => 'user', 'as' => 'user.'], static function (): void {
+            Route::post('/create', [UserController::class, 'create'])->name('create');
+            Route::post('/update/{user}', [UserController::class, 'update'])->name('update');
+            Route::post('/bulk/create', [UserController::class, 'bulk'])->name('bulk.create');
+        });
+    });
 });

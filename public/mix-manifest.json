@@ -10,5 +10,7 @@
     "/assets/front/img/icons/sponser.svg": "/assets/front/img/icons/sponser.svg",
     "/assets/front/img/member/member1.jpg": "/assets/front/img/member/member1.jpg",
     "/assets/front/img/member/member2.jpg": "/assets/front/img/member/member2.jpg",
-    "/assets/front/img/member/member3.jpg": "/assets/front/img/member/member3.jpg"
+    "/assets/front/img/member/member3.jpg": "/assets/front/img/member/member3.jpg",
+    "/assets/admin/js/admin.js": "/assets/admin/js/admin.js",
+    "/assets/admin/css/app.css": "/assets/admin/css/app.css"
 }

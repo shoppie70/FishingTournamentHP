@@ -2,78 +2,69 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
+use App\Models\Admin;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Enums\AdminType;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
+    protected string $base_title = '管理者';
+
+    protected array $roles = [];
+
+    public function __construct()
+    {
+        $this->roles = [
+            AdminType::getDescription(AdminType::SUPER_USER),
+            AdminType::getDescription(AdminType::KITCHEN_STAFF),
+            AdminType::getDescription(AdminType::HOSPITAL_CLERK),
+        ];
+    }
+
     public function index()
     {
-        return view('admin::index');
+        $title = $this->base_title . '一覧';
+        $base_title = $this->base_title;
+        $admin_accounts = Admin::all();
+
+        $route_for_create = route('admin.accounts.create');
+
+        return view('admin::pages.admin.index', compact(
+            'title',
+            'admin_accounts',
+            'route_for_create',
+            'base_title'
+        ));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
     public function create()
     {
-        return view('admin::create');
+        $title = $this->base_title . '作成';
+        $endpoint = route('api.admin.v1.accounts.create');
+        $method = 'POST';
+        $roles = $this->roles;
+
+        return view('admin::pages.admin.edit', compact(
+            'title',
+            'endpoint',
+            'method',
+            'roles'
+        ));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(Request $request)
+    public function edit(Admin $admin)
     {
-        //
-    }
+        $title = $this->base_title . '編集';
+        $endpoint = route('api.admin.v1.accounts.edit', ['admin' => $admin]);
+        $method = 'POST';
+        $roles = $this->roles;
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
-    {
-        return view('admin::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('admin::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
+        return view('admin::pages.admin.edit', compact(
+            'title',
+            'admin',
+            'endpoint',
+            'method',
+            'roles'
+        ));
     }
 }

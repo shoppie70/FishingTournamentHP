@@ -12,11 +12,21 @@
                     </a>
                 </li>
             @endforeach
-            <li class="p-2">
-                <a class="rounded bg-blue-300 py-2 px-4" href="">
-                    会員ページ
-                </a>
-            </li>
+            @auth
+                <li class="p-2">
+                    <a class="rounded bg-blue-300 py-2 px-4"
+                       href="{{ route('player.mypage', ['player' => Auth::guard('player')->user()]) }}">
+                        会員ページ
+                    </a>
+                </li>
+            @endauth
+            @guest
+                <li class="p-2">
+                    <a class="rounded bg-blue-300 py-2 px-4" href="{{ route('player.login.index') }}">
+                        ログイン
+                    </a>
+                </li>
+            @endguest
         </ul>
     </div>
 </div>
