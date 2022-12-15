@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 class Authenticate extends Middleware
 {
     protected string $player_route = 'player.login.index';
-    protected string $admin_route = 'admin.login.index';
+    protected string $admin_route = 'admin.login';
 
     /**
      * Get the path the user should be redirected to when they are not authenticated.

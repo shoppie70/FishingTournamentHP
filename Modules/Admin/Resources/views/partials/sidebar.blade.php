@@ -1,10 +1,10 @@
-{{--<div class="hamburger-menu">--}}
-{{--    <div class="hamburger-menu-btn__wrapper">--}}
-{{--        <div class="hamburger-menu__btn_before"></div>--}}
-{{--        <div class="hamburger-menu__btn"></div>--}}
-{{--        <div class="hamburger-menu__btn_after"></div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+<div class="hamburger-menu">
+    <div class="hamburger-menu-btn__wrapper">
+        <div class="hamburger-menu__btn_before"></div>
+        <div class="hamburger-menu__btn"></div>
+        <div class="hamburger-menu__btn_after"></div>
+    </div>
+</div>
 <nav id="sidebar"
      class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
     <div
@@ -57,26 +57,26 @@
             </ul>
 
             <hr class="my-4 md:min-w-full"/>
-            {{--            @php($current_path = '/' . request()->path())--}}
-            {{--            @foreach(config('admin.sidebar')[Auth::user()->role]['sidebar'] as $sidebar)--}}
-            {{--                <h6 class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">--}}
-            {{--                    {{ $sidebar['name'] }}--}}
-            {{--                </h6>--}}
-            {{--                <!-- Navigation -->--}}
-            {{--                <ul class="md:flex-col md:min-w-full flex flex-col list-none">--}}
-            {{--                    @foreach($sidebar['menus'] as $sidebar_menu)--}}
-            {{--                        <li class="items-center">--}}
-            {{--                            <a href="{{ $sidebar_menu['uri'] }}"--}}
-            {{--                               class="text-xs uppercase py-3 font-bold block--}}
-            {{--                                    {{ $current_path === $sidebar_menu['uri'] ? 'text-pink-500 hover:text-pink-600' : 'text-blueGray-700 hover:text-blueGray-500' }}">--}}
-            {{--                                <i class="fas fa-tv mr-2 text-sm opacity-75 {{ $current_path === $sidebar_menu['uri'] ? 'opacity-75' : 'text-blueGray-300' }}"></i>--}}
-            {{--                                {{ $sidebar_menu['title'] }}--}}
-            {{--                            </a>--}}
-            {{--                        </li>--}}
-            {{--                    @endforeach--}}
-            {{--                </ul>--}}
-            {{--                <hr class="my-4 md:min-w-full"/>--}}
-            {{--            @endforeach--}}
+            @php($current_path = '/' . request()->path())
+            @foreach(config('admin.sidebar')['sidebar'] as $sidebar)
+                <h6 class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+                    {{ $sidebar['name'] }}
+                </h6>
+                <!-- Navigation -->
+                <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+                    @foreach($sidebar['menus'] as $sidebar_menu)
+                        <li class="items-center">
+                            <a href="{{ $sidebar_menu['uri'] }}"
+                               class="text-xs uppercase py-3 font-bold block
+                                                {{ $current_path === $sidebar_menu['uri'] ? 'text-pink-500 hover:text-pink-600' : 'text-blueGray-700 hover:text-blueGray-500' }}">
+                                <i class="fas fa-tv mr-2 text-sm opacity-75 {{ $current_path === $sidebar_menu['uri'] ? 'opacity-75' : 'text-blueGray-300' }}"></i>
+                                {{ $sidebar_menu['title'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+                <hr class="my-4 md:min-w-full"/>
+            @endforeach
         </div>
     </div>
 </nav>

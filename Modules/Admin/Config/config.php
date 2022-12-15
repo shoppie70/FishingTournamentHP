@@ -29,38 +29,26 @@ return [
                 ],
             ],
             [
-                'id' => 'staff',
-                'name' => '職員管理',
+                'id' => 'news',
+                'name' => 'お知らせ管理',
                 'menus' => [
                     [
-                        'uri' => '/admin/user',
-                        'title' => '職員一覧',
-                    ],
-                    [
-                        'uri' => '/admin/user/create',
-                        'title' => '職員の追加',
-                    ],
-                    [
-                        'uri' => '/admin/user/bulk_update',
-                        'title' => '職員一括登録',
-                    ],
-                    [
-                        'uri' => '/admin/department',
-                        'title' => '部署一覧',
-                    ],
-                    [
-                        'uri' => '/api/admin/v1/reservation/export',
-                        'title' => '利用状況CSVエクスポート',
+                        'uri' => '/admin/news',
+                        'title' => 'お知らせ一覧',
                     ],
                 ],
             ],
             [
-                'id' => 'billing',
-                'name' => '請求管理',
+                'id' => 'users',
+                'name' => 'アカウント管理',
                 'menus' => [
                     [
-                        'uri' => '/admin/invoice',
-                        'title' => '請求書一覧',
+                        'uri' => '/admin/user',
+                        'title' => 'アカウント一覧',
+                    ],
+                    [
+                        'uri' => '/admin/user/create',
+                        'title' => 'アカウント追加',
                     ],
                 ],
             ],
@@ -68,18 +56,6 @@ return [
                 'id' => 'system',
                 'name' => 'システム管理',
                 'menus' => [
-                    [
-                        'uri' => '/admin/accounts',
-                        'title' => '管理者一覧',
-                    ],
-                    [
-                        'uri' => '/admin/menu/price',
-                        'title' => 'メニュー価格',
-                    ],
-                    [
-                        'uri' => '/admin/reservation/place',
-                        'title' => '予約場所',
-                    ],
                     [
                         'uri' => '/admin/system/phpmyadmin',
                         'title' => 'PHP情報',

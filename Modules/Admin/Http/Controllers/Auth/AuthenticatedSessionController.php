@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
-    public function create()
+    public function create(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $endpoint = route('admin.login');
 
@@ -19,7 +19,7 @@ class AuthenticatedSessionController extends Controller
         ));
     }
 
-    public function store(LoginRequest $request)
+    public function store(LoginRequest $request): \Illuminate\Http\RedirectResponse
     {
         $request->authenticate();
 
@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
         return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request): \Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
         Auth::guard('admins')->logout();
 

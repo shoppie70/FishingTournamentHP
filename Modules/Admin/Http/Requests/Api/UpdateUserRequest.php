@@ -24,24 +24,18 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'staff_number' => 'required|integer',
             'name' => 'nullable|string',
-            'department_id' => 'nullable|integer',
             'email' => 'nullable|string',
-            'is_retired' => 'nullable|bool',
-            'is_temporary' => 'nullable|bool',
+            'password' => 'nullable|string',
         ];
     }
 
     public function attributes()
     {
         return [
-            'staff_number' => '職員番号',
             'name' => '職員名',
-            'department_id' => '部署ID',
             'email' => 'メールアドレス',
-            'is_retired' => '退職済み',
-            'is_temporary' => '仮会員',
+            'password' => 'パスワード'
         ];
     }
 }

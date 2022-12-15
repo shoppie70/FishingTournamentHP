@@ -16,6 +16,7 @@ use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Admin\Http\Controllers\Auth\AuthenticatedSessionController;
 use Modules\Admin\Http\Controllers\DashboardController;
 use Modules\Admin\Http\Controllers\SystemController;
+use Modules\Admin\Http\Controllers\UserController;
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function (): void {
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
@@ -24,6 +25,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function (): void {
 
     Route::middleware('auth:web')->group(static function (): void {
         Route::get('/', [DashboardController::class, 'index'])->name('index');
+
+        // admin.user.
+        Route::group(['prefix' => 'user', 'as' => 'user.'], static function (): void {
+            Route::get('/', [UserController::class, 'index'])->name('index');
+            Route::get('/create', [UserController::class, 'create'])->name('create');
+            Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
+        });
 
         // admin.profile.
         Route::group(['prefix' => 'accounts', 'as' => 'accounts.'], static function (): void {
