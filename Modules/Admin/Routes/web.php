@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Admin\Http\Controllers\Auth\AuthenticatedSessionController;
 use Modules\Admin\Http\Controllers\DashboardController;
+use Modules\Admin\Http\Controllers\NewsController;
 use Modules\Admin\Http\Controllers\SystemController;
 use Modules\Admin\Http\Controllers\UserController;
 
@@ -31,6 +32,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function (): void {
             Route::get('/', [UserController::class, 'index'])->name('index');
             Route::get('/create', [UserController::class, 'create'])->name('create');
             Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
+        });
+
+        // admin.news.
+        Route::group(['prefix' => 'news', 'as' => 'news.'], static function (): void {
+            Route::get('/', [NewsController::class, 'index'])->name('index');
+            Route::get('/create', [NewsController::class, 'create'])->name('create');
+            Route::get('/{news}/edit', [NewsController::class, 'edit'])->name('edit');
         });
 
         // admin.profile.

@@ -36,6 +36,10 @@ return [
                         'uri' => '/admin/news',
                         'title' => 'お知らせ一覧',
                     ],
+                    [
+                        'uri' => '/admin/news/create',
+                        'title' => 'お知らせ投稿',
+                    ],
                 ],
             ],
             [
