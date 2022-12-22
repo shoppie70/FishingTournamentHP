@@ -15,7 +15,7 @@
                         </a>
                     </li>
                     @if($i === 2 && $loop->last)
-                        @auth
+                        @auth('player')
                             <li class="py-2 px-4 hover:border-b border-black">
                                 <a href="{{ route('player.mypage', ['player' => Auth::guard('player')->user()]) }}">
                                     マイページ

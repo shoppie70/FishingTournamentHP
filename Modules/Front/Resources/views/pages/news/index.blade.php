@@ -16,20 +16,21 @@
                 @include('front::components.heading-main', ['main_title' => $title, 'sub_title' => $sub_title])
             </div>
             <ul class="rounded mx-auto bg-gray-100 py-4 px-4 md:px-8">
-                @for($i = 0; $i < 8; ++$i)
+                @foreach($news_items as $news_item)
                     <li class="news-item py-4">
                         <article class="flex items-center flex-wrap">
-                            <time datetime="" class="md:mr-4 block bg-blue-400 text-white text-sm rounded py-1 px-2 mb-2 md:mb-0">
-                                2022.12.24
+                            <time datetime="{{ $news_item->created_at->format('Y-m-d') }}"
+                                  class="md:mr-4 block bg-blue-400 text-white text-sm rounded py-1 px-2 mb-2 md:mb-0">
+                                {{ $news_item->created_at->format('Y.m.d') }}
                             </time>
                             <h1>
-                                <a href="">
-                                    タイトルが入ります。タイトルが入ります。タイトルが入ります。
+                                <a href="{{ route('news.show',['news' => $news_item]) }}">
+                                    {{ $news_item->title }}
                                 </a>
                             </h1>
                         </article>
                     </li>
-                @endfor
+                @endforeach
             </ul>
         </div>
     </section>

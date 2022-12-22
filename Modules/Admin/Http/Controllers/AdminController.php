@@ -14,18 +14,18 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->roles = [
-            AdminType::getDescription(AdminType::SUPER_USER),
-            AdminType::getDescription(AdminType::KITCHEN_STAFF),
-            AdminType::getDescription(AdminType::HOSPITAL_CLERK),
-        ];
+//        $this->roles = [
+//            AdminType::getDescription(AdminType::SUPER_USER),
+//            AdminType::getDescription(AdminType::KITCHEN_STAFF),
+//            AdminType::getDescription(AdminType::HOSPITAL_CLERK),
+//        ];
     }
 
     public function index()
     {
         $title = $this->base_title . '一覧';
         $base_title = $this->base_title;
-        $admin_accounts = Admin::all();
+//        $admin_accounts = Admin::all();
 
         $route_for_create = route('admin.accounts.create');
 
@@ -52,19 +52,19 @@ class AdminController extends Controller
         ));
     }
 
-    public function edit(Admin $admin)
-    {
-        $title = $this->base_title . '編集';
-        $endpoint = route('api.admin.v1.accounts.edit', ['admin' => $admin]);
-        $method = 'POST';
-        $roles = $this->roles;
-
-        return view('admin::pages.admin.edit', compact(
-            'title',
-            'admin',
-            'endpoint',
-            'method',
-            'roles'
-        ));
-    }
+//    public function edit(Admin $admin)
+//    {
+//        $title = $this->base_title . '編集';
+//        $endpoint = route('api.admin.v1.accounts.edit', ['admin' => $admin]);
+//        $method = 'POST';
+//        $roles = $this->roles;
+//
+//        return view('admin::pages.admin.edit', compact(
+//            'title',
+//            'admin',
+//            'endpoint',
+//            'method',
+//            'roles'
+//        ));
+//    }
 }

@@ -42,11 +42,14 @@
                         </th>
                         <td class="td-base">
                             <a href="{{ route('admin.news.edit', ['news' => $item]) }}">
-                                {{ $item->name }}
+                                {{ $item->title }}
                             </a>
                         </td>
                         <td class="td-base">
-                            {{ $item->body ?? '' }}
+                            {!! strip_tags($item->body) !!}...
+                        </td>
+                        <td class="td-base">
+                            {{ $item->is_hidden ? '非表示' : '表示' }}
                         </td>
                         <td class="td-base text-right">
                             <a href="{{ route('admin.news.edit', ['news' => $item]) }}"

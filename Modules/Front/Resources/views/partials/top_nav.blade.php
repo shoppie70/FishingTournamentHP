@@ -12,7 +12,7 @@
                     </a>
                 </li>
             @endforeach
-            @auth
+            @auth('player')
                 <li class="p-2">
                     <a class="rounded bg-blue-300 py-2 px-4"
                        href="{{ route('player.mypage', ['player' => Auth::guard('player')->user()]) }}">

@@ -18,7 +18,14 @@ class NewsController extends Controller
         $sub_title = 'NEWS';
         $hero_image_path = '';
 
-        return view('front::pages.news.index', compact('title', 'sub_title', 'hero_image_path'));
+        $news_items = News::query()->get();
+
+        return view('front::pages.news.index', compact(
+            'title',
+            'sub_title',
+            'hero_image_path',
+            'news_items'
+        ));
     }
 
     /**
@@ -28,6 +35,15 @@ class NewsController extends Controller
      */
     public function show(News $news): Renderable
     {
-        return view('front::pages.news.show', compact('news'));
+        $title = 'お知らせ';
+        $sub_title = 'NEWS';
+        $hero_image_path = '';
+
+        return view('front::pages.news.show', compact(
+            'title',
+            'sub_title',
+            'hero_image_path',
+            'news'
+        ));
     }
 }

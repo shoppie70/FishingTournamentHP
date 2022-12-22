@@ -4,7 +4,6 @@ namespace Modules\Admin\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class NewsController extends Controller
@@ -19,7 +18,7 @@ class NewsController extends Controller
     {
         $title = $this->base_title . '一覧';
         $base_title = $this->base_title;
-        $route_for_create = '';
+        $route_for_create = route('admin.news.create');
         $method = 'POST';
         $items = News::query()->paginate(10);
 
@@ -40,21 +39,36 @@ class NewsController extends Controller
     {
         $title = $this->base_title . 'の作成';
         $base_title = $this->base_title;
+        $endpoint = route('api.admin.v1.news.store');
+        $method = 'POST';
 
-        return view('admin::pages.news.create', compact(
+        return view('admin::pages.news.edit', compact(
             'title',
-            'base_title'
+            'base_title',
+            'method',
+            'endpoint',
         ));
     }
 
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     * @param News $news
      * @return Renderable
      */
-    public function edit($id): Renderable
+    public function edit(News $news): Renderable
     {
-        return view('admin::edit');
+        $title = $this->base_title . 'の編集';
+        $base_title = $this->base_title;
+        $endpoint = route('api.admin.v1.news.update', ['news' => $news]);
+        $method = 'POST';
+
+        return view('admin::pages.news.edit', compact(
+            'title',
+            'base_title',
+            'endpoint',
+            'method',
+            'news'
+        ));
     }
 }
