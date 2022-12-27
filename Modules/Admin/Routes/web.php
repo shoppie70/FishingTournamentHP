@@ -14,6 +14,7 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Admin\Http\Controllers\Auth\AuthenticatedSessionController;
+use Modules\Admin\Http\Controllers\ContactController;
 use Modules\Admin\Http\Controllers\DashboardController;
 use Modules\Admin\Http\Controllers\NewsController;
 use Modules\Admin\Http\Controllers\SystemController;
@@ -39,6 +40,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function (): void {
             Route::get('/', [NewsController::class, 'index'])->name('index');
             Route::get('/create', [NewsController::class, 'create'])->name('create');
             Route::get('/{news}/edit', [NewsController::class, 'edit'])->name('edit');
+        });
+
+        // admin.contact.
+        Route::group(['prefix' => 'contact', 'as' => 'contact.'], static function (): void {
+            Route::get('/', [ContactController::class, 'index'])->name('index');
+            Route::get('/{news}/show', [ContactController::class, 'show'])->name('show');
         });
 
         // admin.profile.

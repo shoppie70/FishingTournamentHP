@@ -2,8 +2,8 @@
 
 namespace Modules\Front\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class FrontController extends Controller
@@ -36,6 +36,12 @@ class FrontController extends Controller
                 'image' => asset('assets/front/img/icons/sponser.svg'),
             ],
         ];
-        return view('front::index', compact('page_links'));
+
+        $news_items = News::query()->get();
+
+        return view('front::index', compact(
+            'page_links',
+            'news_items'
+        ));
     }
 }

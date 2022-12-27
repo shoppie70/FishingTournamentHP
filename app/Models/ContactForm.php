@@ -12,4 +12,14 @@ class ContactForm extends Model
     protected $fillable = [
         'form_type_id'
     ];
+
+    public function details(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ContactFormDetail::class, 'form_id');
+    }
+
+    public function get_detail_value(string $slug_name): string
+    {
+        return $this->details->where('slug', $slug_name)->where('form_id', $this->id)->first()->value ?? ' - ';
+    }
 }

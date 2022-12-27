@@ -43,6 +43,20 @@ return [
                 ],
             ],
             [
+                'id' => 'contact',
+                'name' => 'お問い合わせ管理',
+                'menus' => [
+                    [
+                        'uri' => '/admin/contact?type=1',
+                        'title' => 'お問い合わせ一覧',
+                    ],
+                    [
+                        'uri' => '/admin/contact?type=0',
+                        'title' => '協賛のお問い合わせ一覧',
+                    ],
+                ],
+            ],
+            [
                 'id' => 'users',
                 'name' => 'アカウント管理',
                 'menus' => [

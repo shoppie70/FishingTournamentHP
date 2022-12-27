@@ -29,7 +29,8 @@
                 @foreach($page_links as $page_link)
                     <li class="bg-orange-50 border rounded shadow w-full text-center">
                         <a href="{{ $page_link['path'] }}" class="pt-6 p-4 block">
-                            <img class="block mx-auto mb-2" style="max-width: 50px" src="{{ $page_link['image'] }}" alt="{{ $page_link['title'] }}">
+                            <img class="block mx-auto mb-2" style="max-width: 50px" src="{{ $page_link['image'] }}"
+                                 alt="{{ $page_link['title'] }}">
                             <h2 class="font-bold">
                                 {{ $page_link['title'] }}
                             </h2>
@@ -45,20 +46,21 @@
         </div>
         <div class="max-w-screen-md mx-auto w-full">
             <ul class="border py-4 px-6 rounded shadow-lg">
-                @for($i = 0; $i < 3; ++$i)
+                @foreach($news_items as $news_item)
                     <li class="py-4">
                         <article class="flex flex-wrap items-center md:flex-nowrap">
-                            <time datetime="" class="rounded bg-blue-400 text-white font-bold py-1 px-2 text-sm">
-                                2022.12.24
+                            <time datetime="{{ $news_item->created_at->format('Y-m-d') }}"
+                                  class="rounded bg-blue-400 text-white font-bold py-1 px-2 text-sm">
+                                {{ $news_item->created_at->format('Y.m.d') }}
                             </time>
                             <h1 class="ml-4">
-                                <a href="" class="underline">
-                                    お知らせのタイトルが入ります。
+                                <a href="{{ route('news.show',['news' => $news_item]) }}" class="underline">
+                                    {{ $news_item->title }}
                                 </a>
                             </h1>
                         </article>
                     </li>
-                @endfor
+                @endforeach
             </ul>
         </div>
     </section>
