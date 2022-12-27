@@ -45,7 +45,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function (): void {
         // admin.contact.
         Route::group(['prefix' => 'contact', 'as' => 'contact.'], static function (): void {
             Route::get('/', [ContactController::class, 'index'])->name('index');
-            Route::get('/{news}/show', [ContactController::class, 'show'])->name('show');
         });
 
         // admin.profile.
